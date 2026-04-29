@@ -56,6 +56,8 @@ CSS imports are extracted, concatenated, and inlined into the iframe `<style>` b
 ### Data layer
 SQLite via Prisma (`prisma/dev.db`). The Prisma client is generated to **`src/generated/prisma`** (see the `output` line in `prisma/schema.prisma`) — import it as `@/generated/prisma`, not `@prisma/client`. `Project.messages` and `Project.data` are stringified JSON columns; nothing about the virtual filesystem is normalized in the schema.
 
+The database schema is defined in `prisma/schema.prisma`. Reference it any time you need to understand the structure of data stored in the database.
+
 ### Node 25+ SSR workaround
 `src/instrumentation.ts` and `node-compat.cjs` both delete `globalThis.localStorage`/`sessionStorage` on the server. Node 25 exposes these globals via the experimental Web Storage API but they throw without `--localstorage-file`; deleting them restores the pre-25 `typeof localStorage === "undefined"` behavior that SSR-safe libraries expect. **Don't add `typeof window` guards as a workaround — the global being missing is the fix.**
 

@@ -10,6 +10,9 @@
 !.yarn/releases
 !.yarn/versions
 
+# playwright
+/.playwright-mcp
+
 # testing
 /coverage
 
@@ -29,6 +32,7 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
+logs.txt
 
 # env files (can opt-in for committing if needed)
 .env

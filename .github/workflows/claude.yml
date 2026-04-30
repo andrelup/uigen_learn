@@ -12,11 +12,10 @@ on:
 
 jobs:
   claude:
-    if: |
-      (github.event_name == 'issue_comment' && contains(github.event.comment.body, '@claude')) ||
-      (github.event_name == 'pull_request_review_comment' && contains(github.event.comment.body, '@claude')) ||
-      (github.event_name == 'pull_request_review' && contains(github.event.review.body, '@claude')) ||
-      (github.event_name == 'issues' && (contains(github.event.issue.body, '@claude') || contains(github.event.issue.title, '@claude')))
+    # Disabled: Anthropic API credit not provisioned for this repo. Re-enable
+    # by restoring the original `@claude` mention guard once a funded
+    # ANTHROPIC_API_KEY secret is in place.
+    if: false
     runs-on: ubuntu-latest
     permissions:
       contents: read
